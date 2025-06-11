@@ -1,37 +1,69 @@
-//Better
-
-import java.util.HashMap;
-import java.util.Map;
+//Optimal
 
 class LongestSubarray {
     public static void main(String[] args) {
         int[] nums = { 2, 0, 0, 3 };
+        // int[] nums = { 1, 2, 3, 1, 1, 1, 1, 4, 2, 3 };
         int s = 3;
 
+        int left = 0;
         int sum = 0;
-        int length = 0;
-        int temp = 0;
+        int maxLength = 0;
 
-        Map<Integer, Integer> hash = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
+        for (int right = 0; right < nums.length; right++) {
+            sum += nums[right];
 
-            sum += nums[i];
-
-            if (hash.containsKey(sum - s)) {
-                temp = i - hash.get(sum - s);
+            while (s < sum && left <= right) {
+                sum -= nums[left];
+                left++;
             }
-
-            if (temp > length) {
-                length = temp;
-            }
-
-            if (!hash.containsKey(sum)) {
-                hash.put(sum, i); // For zeroes
+            if (s == sum) {
+                if (maxLength < right - left + 1) {
+                    maxLength = right - left + 1;
+                }
             }
         }
-        System.out.println(length);
+        System.out.println(maxLength);
     }
 }
+
+// Time Complexity = O(2n)
+// Space Complexity = O(1)
+
+// Better
+
+// import java.util.HashMap;
+// import java.util.Map;
+
+// class LongestSubarray {
+// public static void main(String[] args) {
+// int[] nums = { 2, 0, 0, 3 };
+// int s = 3;
+
+// int sum = 0;
+// int length = 0;
+// int temp = 0;
+
+// Map<Integer, Integer> hash = new HashMap<>();
+// for (int i = 0; i < nums.length; i++) {
+
+// sum += nums[i];
+
+// if (hash.containsKey(sum - s)) {
+// temp = i - hash.get(sum - s);
+// }
+
+// if (temp > length) {
+// length = temp;
+// }
+
+// if (!hash.containsKey(sum)) {
+// hash.put(sum, i); // For zeroes
+// }
+// }
+// System.out.println(length);
+// }
+// }
 
 // Time Complexity = O(n2)
 // Space Complexity = O(n)
