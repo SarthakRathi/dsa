@@ -7,9 +7,10 @@ import java.util.Map;
 
 class Majority {
     public static void main(String[] args) {
-        int[] nums = { 1, 1, 1, 3, 3, 2, 2, 2 };
+        int[] nums = { 1 };
 
         Map<Integer, Integer> hash = new HashMap<>();
+        List<Integer> answer = new ArrayList<>();
 
         for (int i = 0; i < nums.length; i++) {
             if (hash.containsKey(nums[i])) {
@@ -17,13 +18,8 @@ class Majority {
             } else {
                 hash.put(nums[i], 1);
             }
-        }
-
-        List<Integer> answer = new ArrayList<>();
-
-        for (Map.Entry<Integer, Integer> entry : hash.entrySet()) {
-            if (entry.getValue() > nums.length / 3) {
-                answer.add(entry.getKey());
+            if (hash.get(nums[i]) > nums.length / 3 && !answer.contains(nums[i])) {
+                answer.add(nums[i]);
             }
         }
 
