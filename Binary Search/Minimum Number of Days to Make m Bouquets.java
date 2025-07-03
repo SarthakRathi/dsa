@@ -13,7 +13,7 @@ class Bouquets {
             boolean isPossible;
             int minDay = high;
 
-            while (high <= low) {
+            while (high >= low) {
                 int mid = (low + high) / 2;
                 isPossible = isPossible(bloomDay, mid, m, k);
                 if (isPossible) {
