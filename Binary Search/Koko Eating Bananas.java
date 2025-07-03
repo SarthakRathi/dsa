@@ -39,3 +39,5 @@ class KokoEatingBananas {
         return max;
     }
 }
+
+// Time Complexity = O(n) * O(log2(max element))
