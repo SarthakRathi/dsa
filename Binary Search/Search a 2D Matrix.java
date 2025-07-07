@@ -28,3 +28,5 @@ class Search2DMatrix {
         return false;
     }
 }
+
+// Time Complexity = O(n) + O(log m)
