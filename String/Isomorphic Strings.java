@@ -29,3 +29,6 @@ class IsomorphicStrings {
         }
     }
 }
+
+// Time Complexity = O(n)
+// Space Complexity = O(1)
