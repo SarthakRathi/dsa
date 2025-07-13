@@ -1,4 +1,4 @@
-public class LinkedList {
+class LinkedList {
     Node head;
     private int size;
 
@@ -8,11 +8,19 @@ public class LinkedList {
 
     class Node {
         String data;
+        Node prev;
         Node next;
 
         Node(String data) {
             this.data = data;
+            this.prev = null;
             this.next = null;
+        }
+
+        Node(String data, Node prev, Node next) {
+            this.data = data;
+            this.prev = prev;
+            this.next = next;
         }
     }
 
@@ -21,10 +29,11 @@ public class LinkedList {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
-            return;
+        } else {
+            newNode.next = head;
+            head.prev = newNode;
+            head = newNode;
         }
-        newNode.next = head;
-        head = newNode;
         size++;
     }
 
@@ -33,15 +42,14 @@ public class LinkedList {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
-            return;
+        } else {
+            Node currNode = head;
+            while (currNode.next != null) {
+                currNode = currNode.next;
+            }
+            currNode.next = newNode;
+            newNode.prev = currNode;
         }
-
-        Node currNode = head;
-        while (currNode.next != null) {
-            currNode = currNode.next;
-        }
-
-        currNode.next = newNode;
         size++;
     }
 
@@ -52,6 +60,9 @@ public class LinkedList {
         }
         size--;
         head = head.next;
+        if (head != null) {
+            head.prev = null;
+        }
     }
 
     // Delete Last
