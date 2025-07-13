@@ -59,10 +59,13 @@ class LinkedList {
             return;
         }
         size--;
+        Node toDelete = head;
         head = head.next;
         if (head != null) {
             head.prev = null;
         }
+        toDelete.next = null;
+        toDelete.prev = null;
     }
 
     // Delete Last
@@ -81,6 +84,7 @@ class LinkedList {
         while (currNode.next.next != null) {
             currNode = currNode.next;
         }
+        currNode.next.prev = null;
         currNode.next = null;
     }
 
