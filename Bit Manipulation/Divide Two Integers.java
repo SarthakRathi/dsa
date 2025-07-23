@@ -9,7 +9,6 @@ class Solution {
         if (dividend < 0 && divisor > 0)
             sign = false;
 
-        // Handle the specific overflow case first
         if (dividend == Integer.MIN_VALUE && divisor == -1) {
             return Integer.MAX_VALUE;
         }
