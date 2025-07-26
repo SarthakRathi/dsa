@@ -23,3 +23,6 @@ class Solution {
         return ans;
     }
 }
+
+// Time Complexity = O(log2 n)
+// Space Complexity = O(1)
