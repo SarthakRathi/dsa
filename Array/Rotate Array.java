@@ -7,15 +7,12 @@ class Shifting {
         if (k > nums.length) {
             k = k % nums.length;
         }
-
-        if (nums.length > 1 && k != 0) {
-            nums = reverse(nums, 0, nums.length - k - 1);
-            Shifting.print(nums);
-            nums = reverse(nums, nums.length - k, nums.length - 1);
-            Shifting.print(nums);
-            nums = reverse(nums, 0, nums.length - 1);
-            Shifting.print(nums);
-        }
+        reverse(nums, 0, nums.length - k - 1);
+        print(nums);
+        reverse(nums, nums.length - k, nums.length - 1);
+        print(nums);
+        reverse(nums, 0, nums.length - 1);
+        print(nums);
     }
 
     public static int[] reverse(int nums[], int start, int end) {
