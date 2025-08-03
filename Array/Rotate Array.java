@@ -9,11 +9,11 @@ class Shifting {
         }
 
         if (nums.length > 1 && k != 0) {
-            nums = Shifting.reverse(nums, 0, nums.length - k - 1);
+            nums = reverse(nums, 0, nums.length - k - 1);
             Shifting.print(nums);
-            nums = Shifting.reverse(nums, nums.length - k, nums.length - 1);
+            nums = reverse(nums, nums.length - k, nums.length - 1);
             Shifting.print(nums);
-            nums = Shifting.reverse(nums, 0, nums.length - 1);
+            nums = reverse(nums, 0, nums.length - 1);
             Shifting.print(nums);
         }
     }
