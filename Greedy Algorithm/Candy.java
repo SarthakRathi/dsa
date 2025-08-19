@@ -1,4 +1,4 @@
-class Solution {
+class Solutions {
     public int candy(int[] ratings) {
         int sum = 1;
         int i = 1;
