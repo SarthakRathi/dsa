@@ -64,14 +64,14 @@ class MinHeap {
         if (heap.size() == 0) {
             return Integer.MIN_VALUE;
         }
-        int max = heap.get(0);
+        int min = heap.get(0);
         int last = heap.size() - 1;
         heap.set(0, heap.get(last));
         heap.remove(last);
         if (!heap.isEmpty()) {
             heapify(0);
         }
-        return max;
+        return min;
     }
 
     public void print() {
