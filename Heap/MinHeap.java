@@ -81,7 +81,7 @@ class MinHeap {
     }
 }
 
-class Main {
+class Main2 {
     public static void main(String[] args) {
         MinHeap mh = new MinHeap();
         mh.insert(100);
